@@ -1,5 +1,3 @@
- 
-
 import {
   Dialog,
   DialogContent,
@@ -15,7 +13,7 @@ import { useShopStore } from "@/store/useShopStore";
 import { Button } from "./ui/button";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
-import { toast } from "sonner"
+import { toast } from "sonner";
 import { useState } from "react";
 
 export default function Cart() {
@@ -27,8 +25,6 @@ export default function Cart() {
   const clearCart = useCartStore((state) => state.clearCart);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   const total = cartItems.reduce((acc, curr) => acc + curr.quantity, 0);
-
- 
 
   //function to handle the change of quantity of an item in the cart
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>, item: any) => {
@@ -55,19 +51,17 @@ export default function Cart() {
   };
 
   // function to handle the checkout
- 
+
   const handleCheckOut = () => {
-    
     toast("Event has been created", {
       description: "Sunday, December 03, 2023 at 9:00 AM",
     });
     clearCart();
     resetPicked();
-     
   };
 
   return (
-    <Dialog  >
+    <Dialog>
       <DialogTrigger asChild>
         <Button className="bg-slate-600 text-white p-2 rounded-lg">
           <ShoppingCart className="pr-2" /> Vue your cart : {total}
@@ -117,31 +111,12 @@ export default function Cart() {
                       className="bg-slate-600 text-right text-slate-100 px-1 min-w-[50px] rounded-lg"
                       name="quantity"
                       onChange={(e) => handleChange(e, item.id)}
+                      value={item.quantity}
                     >
-                      <option
-                        value="1"
-                        selected={item.quantity === 1 ? true : false}
-                      >
-                        1
-                      </option>
-                      <option
-                        value="2"
-                        selected={item.quantity === 2 ? true : false}
-                      >
-                        2
-                      </option>
-                      <option
-                        value="3"
-                        selected={item.quantity === 3 ? true : false}
-                      >
-                        3
-                      </option>
-                      <option
-                        value="4"
-                        selected={item.quantity === 4 ? true : false}
-                      >
-                        4
-                      </option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
                     </select>
                   </div>
 
