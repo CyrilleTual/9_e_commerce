@@ -1,9 +1,14 @@
+import ProductsList from "@/components/ProductsList";
+import Cart from "@/components/Cart";
 
 
 export default function Home() {
   return (
- <main className="flex flex-col items-center justify-center w-screen h-screen bg-background">
-  Hello
+<main >
+  <div className="max-w-4-xl mx-auto pt-14">
+    <ProductsList />
+  </div>
+ 
  </main>
   );
 }
